@@ -22,7 +22,8 @@ public class App {
             Runnable runnable = new Runnable() {
                 @Override
                 public void run() {
-                    double random = Math.random() * 1000;
+                    // double random = Math.random() * 1000;
+                    double random = Math.random() * 3000; // x3 delay
 
                     try {
                         Thread.sleep((long) random);
