@@ -10,12 +10,30 @@ public class App {
             //         System.out.println("Current Thread id: " + Thread.currentThread().getId());
             //     }
             // }).start();
+
+            // Runnable runnable = new Runnable() {
+            //     @Override
+            //     public void run() {
+            //         System.out.println("Current Thread id: " + Thread.currentThread().getId() + ", Index: " + index);
+            //     }
+            // };
+            // new Thread(runnable).start();
+
             Runnable runnable = new Runnable() {
                 @Override
                 public void run() {
+                    double random = Math.random() * 1000;
+
+                    try {
+                        Thread.sleep((long) random);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
                     System.out.println("Current Thread id: " + Thread.currentThread().getId() + ", Index: " + index);
                 }
             };
+
             new Thread(runnable).start();
         }
     }
