@@ -31,6 +31,36 @@ public class Deadlock {
                 
             }
             
-        })
+        });
+
+        Thread t2 = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                // to lock resource 2: Allocate r2 for thread 2
+                // so, t1 owns r1
+                synchronized (res2) {
+                    System.out.println("Locked on res2");
+                }
+
+                // sleep res1 for 100 milliseconds
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                
+                // then try to lock res2
+                synchronized (res1) {
+                    System.out.println("Locked on res1");
+                }
+                
+            }
+            
+        });
+
+        // start threads
+        t1.start();
+        t2.start();
     }
 }
