@@ -188,4 +188,7 @@ public class App {
         System.out.println("Duration is: " + duration);
         System.err.println("===============");
     }
+
+    // Output Note: parallel execution is good for larger datasets..
+    // takes less amount of time than other executions, such as for loop.
 }
