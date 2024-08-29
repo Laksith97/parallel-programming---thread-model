@@ -10,6 +10,9 @@ public class App {
 
         // Thread safe way: synchronized execute(index)
         asyncVariableAccess2();
+
+        // handle deadlocks
+        
     }
 
     private static double value = 0; // static: this is a class variable, anyone within this application can access
